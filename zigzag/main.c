@@ -8,10 +8,10 @@
 void convert(char original[], char converted[], int numRows);
 
 int main(){
-    char initial[] ="PAYPALISHIRING";
+    char initial[] ="AB";
     char converted[strlen(initial)];
 
-    convert(initial, converted, 4);
+    convert(initial, converted, 1);
 
     printf("%s\n", converted);
 }
@@ -24,6 +24,13 @@ void convert(char original[], char converted[], int numRows){
     int state = INCREASING;
 
     int i = 0;
+
+    if(numRows == 1) {
+        for(int start = 0; original[start] != '\0'; start++){
+            converted[start] = original[start];
+        }
+        return;
+    }
 
     for(int s = 0; s<numRows; s++){
         arrLength[s] = 0;
